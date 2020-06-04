@@ -1,2 +1,2 @@
 #!/bin/bas
-chmod ugo+X *
+chmod ugo+x *
