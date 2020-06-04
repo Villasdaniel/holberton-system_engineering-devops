@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -maFX --group-directories-first .*
+ls -maFX .*
