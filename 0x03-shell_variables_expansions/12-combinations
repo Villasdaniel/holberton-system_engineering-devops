@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e \v {a..z}{a..z} | grep -v "oo"
