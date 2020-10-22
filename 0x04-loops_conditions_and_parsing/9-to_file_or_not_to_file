@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Holberton School" 10 times
+# gives you information about the holbertonschool file
 a="holbertonschool"
 if [ -e $a ]
 then
