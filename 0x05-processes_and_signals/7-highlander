@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Displays to infinity and beyond indefinitely
+while true
+function texti()
+{
+    echo "I am invincible!!!"
+}
+trap texti SIGTERM
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
