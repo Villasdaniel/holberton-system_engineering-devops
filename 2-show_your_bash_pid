@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#displays a processes whose name contain the word bash.
-ps -auxf | grep bash
