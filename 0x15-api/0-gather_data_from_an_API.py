@@ -1,20 +1,27 @@
 #!/usr/bin/python3
-"""
-Queries external API for user todo task information
-"""
-import json
+"""Returns information about his/her TODO list progress"""
 import requests
-import sys
+from sys import argv
+
 
 if __name__ == '__main__':
-    user = get('https://jsonplaceholder.typicode.com/users/{:s}'.format(
-        argv[1]))
-    todo = get('http://jsonplaceholder.typicode.com/todos?userId={:s}'.format(
-        argv[1]))
-    employee = user.json()
-    tasks = todo.json()
-    completed = [item['title'] for item in tasks if item['completed']]
-    print('Employee {:s} is done with tasks({:d}/{:d}):'.format(
-        employee['name'], len(completed), len(tasks)))
-    for item in completed:
-        print('\t ' + item)
+    users = requests.get('https://jsonplaceholder.typicode.com/users',
+                         params={"id": argv[1]})
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos',
+                         params={"userId": argv[1]})
+    data = todos.json()
+    employee = users.json()
+    for u_name in employee:
+        EMPLOYEE_NAME = u_name.get('name')
+    NUMBER_OF_DONE_TASKS = 0
+    TOTAL_NUMBER_OF_TASKS = 0
+    TASK_TITLE = []
+    for task in data:
+        if task.get('completed'):
+            NUMBER_OF_DONE_TASKS += 1
+            TASK_TITLE.append(task.get("title"))
+        TOTAL_NUMBER_OF_TASKS += 1
+    print("Employee {} is done with tasks({}/{}):".format
+          (EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+    for i in TASK_TITLE:
+        print("\t {}".format(i))
