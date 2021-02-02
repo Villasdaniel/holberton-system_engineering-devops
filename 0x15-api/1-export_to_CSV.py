@@ -2,8 +2,8 @@
 """Export data in the CSV format"""
 from csv import writer, QUOTE_ALL
 from csv import QUOTE_ALL
-from requests import get
 from sys import argv
+from requests import get
 
 
 if __name__ == '__main__':
