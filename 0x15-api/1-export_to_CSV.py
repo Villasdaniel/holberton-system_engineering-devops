@@ -15,7 +15,7 @@ if __name__ == '__main__':
         .format(str(argv[1]))).json()
     with open('{:s}.csv'.format(argv[1]), mode='w') as f:
         csv = writer(f, delimiter=',', quotechar='"',
-                          quoting=QUOTE_ALL)
+                     quoting=QUOTE_ALL)
         for task in todos:
             csv.writerow([users['id'], users['username'],
-                              task['completed'], task['title']])
+                          task['completed'], task['title']])
