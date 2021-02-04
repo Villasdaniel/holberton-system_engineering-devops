@@ -9,10 +9,10 @@ def top_ten(subreddit):
     i = 0
     response = requests.get("https://www.reddit.com/r/{}/hot.json"
                             .format(subreddit), headers={'User-agent': 'hola'})
-
     if not response:
-        print ("None")
-    while i < 10:
-        print(response.json().get('data').get('children')[i].get('data')
-              .get('title'))
-        i += 1
+        print("None")
+    else:
+        while i < 10:
+            print(response.json().get('data').get('children')[i].get('data')
+                  .get('title'))
+            i += 1
