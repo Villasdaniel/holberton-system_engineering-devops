@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """queries the Reddit API and returns a list containing the titles"""
+import requests
 
 
 def recurse(subreddit, hot_list=[], after=None):
