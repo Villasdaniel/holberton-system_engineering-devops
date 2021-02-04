@@ -11,7 +11,7 @@ def top_ten(subreddit):
                             .format(subreddit), headers={'User-agent': 'hola'})
 
     if not response:
-        print None
+        print ("None")
     while i < 10:
         print(response.json().get('data').get('children')[i].get('data')
               .get('title'))
